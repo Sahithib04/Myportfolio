@@ -1,0 +1,150 @@
+/* Netflix Theme Styles */
+:root {
+  --netflix-black: #000000;
+  --netflix-black-light: #141414;
+  --netflix-red: #E50914;
+  --netflix-grey: #808080;
+  --netflix-white: #FFFFFF;
+}
+
+.bg-netflix-black {
+  background-color: var(--netflix-black);
+}
+
+.bg-netflix-black-light {
+  background-color: var(--netflix-black-light);
+}
+
+.text-netflix-red {
+  color: var(--netflix-red);
+}
+
+.bg-netflix-red {
+  background-color: var(--netflix-red);
+}
+
+/* Netflix Card Animation */
+.netflix-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.netflix-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(229, 9, 20, 0.1), 0 10px 10px -5px rgba(229, 9, 20, 0.04);
+  z-index: 10;
+}
+
+/* Netflix Button Animation */
+.netflix-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.netflix-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+}
+
+.netflix-button:hover::after {
+  transform: translateX(0);
+  transition: transform 0.6s ease;
+}
+
+/* Netflix Loader Animation */
+.netflix-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--netflix-black);
+}
+
+.netflix-loader-logo {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.netflix-loader-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  border-radius: 4px;
+  background-color: var(--netflix-red);
+  transform: translate(-50%, -50%);
+  animation: netflix-loader 2s ease-in-out infinite;
+}
+
+@keyframes netflix-loader {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.75);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Netflix Title Animation */
+.netflix-title-animation {
+  opacity: 0;
+  animation: netflixTitleIn 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes netflixTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Netflix Rating */
+.netflix-rating {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide scrollbar for content rows */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
